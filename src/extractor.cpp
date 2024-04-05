@@ -90,7 +90,6 @@ bool FeatureExtractor::EstimateRelativePoseWithEssential(
                                     
         cv::Point2f principal_point(K.at<double>(0, 2), K.at<double>(1, 2));
         double focal_length = (K.at<double>(0, 0) + K.at<double>(1, 1)) / 2; 
-        int method = cv::RANSAC;
 
         cv::Mat inliers_mask; 
         essential_matrix = cv::findEssentialMat(points_img1, points_img2, focal_length, principal_point, cv::RANSAC, 0.999, 1.0, inliers_mask);
